@@ -1,0 +1,15 @@
+#1
+
+ User.create(first_name: "Mike", last_name:"Dacanay", email_address:"aoasdf@gmail.com")
+User.create(first_name: "Jake", last_name:"Lelel", email_address:"zzzzz.com")
+User.create(first_name: "Myon", last_name:"Yoto", email_address:"yyyyy.com")
+ User.create(first_name: "Drake", last_name:"Forever", email_address:"xxxx.com")
+User.create(first_name: "Lupe", last_name:"Fiasco", email_address:"yyyy.com")
+
+#2
+
+Blog.create(name: "1st Blog", description: "first blog")
+Blog.create(name: "2nd Blog", description: "Second blog")
+Blog.create(name: "3rd Blog", description: "third blog")
+ Blog.create(name: "4th Blog", description: "fourth blog")
+Blog.create(name: "5th Blog", description: "fifth blog")
