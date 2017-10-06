@@ -1,4 +1,4 @@
-#1
+#3
 
  User.create(first_name: "Mike", last_name:"Dacanay", email_address:"aoasdf@gmail.com")
 User.create(first_name: "Jake", last_name:"Lelel", email_address:"zzzzz.com")
@@ -6,10 +6,65 @@ User.create(first_name: "Myon", last_name:"Yoto", email_address:"yyyyy.com")
  User.create(first_name: "Drake", last_name:"Forever", email_address:"xxxx.com")
 User.create(first_name: "Lupe", last_name:"Fiasco", email_address:"yyyy.com")
 
-#2
+#4
 
 Blog.create(name: "1st Blog", description: "first blog")
 Blog.create(name: "2nd Blog", description: "Second blog")
 Blog.create(name: "3rd Blog", description: "third blog")
  Blog.create(name: "4th Blog", description: "fourth blog")
 Blog.create(name: "5th Blog", description: "fifth blog")
+
+#5
+
+Owner.create(user:User.first, blog:Blog.find(1))
+Owner.create(user:User.first, blog:Blog.find(2))
+Owner.create(user:User.first, blog:Blog.find(3))
+Owner.create(user:User.second, blog:Blog.find(4))
+
+#6
+
+Blog.all.each {|x| Owner.create(user:User.find(3), blog:x)}
+
+#7
+
+Post.create(user:User.first, blog:Blog.find(2),title:"Laugh1", content:"content of laugh1")
+Post.create(user:User.first, blog:Blog.find(2),title:"Laugh2", content:"content of laugh2")
+Post.create(user:User.first, blog:Blog.find(2),title:"Laugh3", content:"content of laugh3")
+
+#8
+
+Post.create(user:User.second, blog:Blog.last, title:"Serious1", content:"content of serious1")
+Post.create(user:User.second, blog:Blog.last, title:"Serious2", content:"content of serious2")
+Post.create(user:User.second, blog:Blog.last, title:"Serious3", content:"content of serious3")
+Post.create(user:User.second, blog:Blog.last, title:"Serious4", content:"content of serious4")
+Post.create(user:User.second, blog:Blog.last, title:"Serious5", content:"content of serious5")
+
+#9
+Post.create(user:User.third, title:"thirdtoone1", content:"contentthirdtoone1", blog:Blog.find(1))
+Post.create(user:User.third, title:"thirdtotwo", content:"contentthirdtotwo", blog:Blog.find(2))
+Post.create(user:User.third, title:"thirdtothree", content:"contentthirdtothree", blog:Blog.find(3))
+
+#10
+try = 1.upto(3) {|i| Message.create(post:Post.second, user:User.third, author: User.third.first_name+" "+User.third
+.last_name, message:"messagefromthird#{i}")}
+
+#11
+1.upto(3) {|i| Message.create(post:Post.last, user:User.all[3], author:User.all[3].first_name+" "+User.all[3].last_
+2.3.1 :074?>     name, message:"Messagefromthe4th#{i}")}
+
+#12
+post = Post.second
+post.user = User.last
+post.save!
+
+#13
+
+post = Post.second
+post.content = "somethingelse"
+post.save!
+
+#14
+User.find(3).blogs
+
+#15
+Post.where("user_id = 3")
