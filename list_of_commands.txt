@@ -68,3 +68,19 @@ User.find(3).blogs
 
 #15
 Post.where("user_id = 3")
+User.third.posts
+
+#16
+User.third.messages
+
+#17
+Post.joins(:user, :blog).where("blogs.id = ?", 5).select("*")
+
+#18
+Message.joins(:post, :user).where("blog_id = 2").select("*")
+
+#18
+Blog.first.owners
+
+#19
+Owner.find(1).destroy
